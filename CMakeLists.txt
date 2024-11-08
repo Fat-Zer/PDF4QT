@@ -55,7 +55,6 @@ endif()
 qt_standard_project_setup()
 
 find_package(OpenSSL REQUIRED)
-find_package(lcms REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(Freetype REQUIRED)
 find_package(OpenJPEG CONFIG REQUIRED)
@@ -92,7 +91,7 @@ endif()
 option(PDF4QT_INSTALL_TO_USR "Install to usr directory" ON)
 
 if(PDF4QT_LINUX)
-    set(PDF4QT_INSTALL_LIB_DIR_IMPL lib)
+    set(PDF4QT_INSTALL_LIB_DIR_IMPL ${CMAKE_INSTALL_LIBDIR})
     set(PDF4QT_INSTALL_BIN_DIR_IMPL bin)
 
     # Check if VCPKG_OVERLAY_PORTS is set as an environment variable or a CMake argument

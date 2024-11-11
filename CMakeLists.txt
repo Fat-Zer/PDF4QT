@@ -120,6 +120,13 @@ else()
     set(PDF4QT_INSTALL_SHARE_DIR share)
 endif()
 
+if(PDF4QT_LINUX)
+    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt      CACHE PATH "Path to where pdf4qt plugins will be installed")
+else()
+    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins  CACHE PATH "Path to where pdf4qt plugins will be installed")
+endif()
+mark_as_advanced(PDF4QT_PLUGINS_DIR)
+
 add_subdirectory(Pdf4QtLibCore)
 
 if(NOT PDF4QT_BUILD_ONLY_CORE_LIBRARY)

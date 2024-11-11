@@ -86,6 +86,12 @@ GENERATE_EXPORT_HEADER(Pdf4QtLibGui
                        PDF4QTLIBGUILIBSHARED_EXPORT
                        EXPORT_FILE_NAME "${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR}/pdf4qtlibgui_export.h")
 
+cmake_path(RELATIVE_PATH PDF4QT_PLUGINS_DIR
+           BASE_DIRECTORY PDF4QT_INSTALL_BIN_DIR
+           OUTPUT_VARIABLE PDF4QT_PLUGINS_RELATIVE_PATH)
+set_source_files_properties(pdfprogramcontroller.cpp
+           PROPERTIES COMPILE_DEFINITIONS "PDF4QT_PLUGINS_RELATIVE_PATH=\"${PDF4QT_PLUGINS_RELATIVE_PATH}\"")
+
 target_link_libraries(Pdf4QtLibGui PRIVATE Pdf4QtLibCore Pdf4QtLibWidgets Qt6::Core Qt6::Gui Qt6::Widgets Qt6::PrintSupport Qt6::TextToSpeech Qt6::Xml Qt6::Svg)
 target_include_directories(Pdf4QtLibGui INTERFACE ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(Pdf4QtLibGui PUBLIC ${CMAKE_BINARY_DIR}/${INSTALL_INCLUDEDIR})

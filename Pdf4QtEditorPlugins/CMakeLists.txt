@@ -15,12 +15,6 @@
 #    You should have received a copy of the GNU Lesser General Public License
 #    along with PDF4QT.  If not, see <https://www.gnu.org/licenses/>.
 
-if(PDF4QT_LINUX)
-    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdf4qt)
-else()
-    set(PDF4QT_PLUGINS_DIR ${PDF4QT_INSTALL_LIB_DIR}/pdfplugins)
-endif()
-
 add_subdirectory(AudioBookPlugin)
 add_subdirectory(DimensionsPlugin)
 add_subdirectory(ObjectInspectorPlugin)
